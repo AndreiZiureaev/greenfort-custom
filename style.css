@@ -1,0 +1,221 @@
+/*
+Theme Name: GreenFort Custom
+Author: Andrei Ziureaev
+Author URI: https://andreiziureaev.com/
+Description: Child theme of Twenty Seventeen for GreenFort
+Template: twentyseventeen
+Version: 1.4.5
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+a {
+    color: #666;
+}
+
+.custom-header-media::before {
+    display: none;
+}
+
+.entry-content a img, .comment-content a img, .widget a img {
+    box-shadow: none;
+}
+
+.wp-caption-text {
+    text-align: center;
+}
+
+@media not screen and (min-width: 48em) {
+    .wp-caption.alignleft {
+        display: block;
+        float: none;
+    }
+}
+
+/*--------------------------------------------------------------
+Site Branding
+--------------------------------------------------------------*/
+
+.site-branding-text {
+    text-shadow: -2px -2px 2px #000, 2px -2px 2px #000, 2px 2px 2px #000, -2px 2px 2px #000,
+                 -1px -1px 1px #000, 1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000;
+}
+
+.site-title {
+    text-transform: none;
+}
+
+body.has-header-image .site-description,
+body.has-header-video .site-description {
+	opacity: 1;
+}
+
+.has-header-image.twentyseventeen-front-page .site-branding,
+.has-header-video.twentyseventeen-front-page .site-branding,
+.has-header-image.home.blog .site-branding,
+.has-header-video.home.blog .site-branding {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: auto;
+    height: auto;
+    padding-top: 1rem;
+    padding-bottom: 0;
+
+    text-align: center;
+    transition: none;
+}
+
+/* Hide description if screen is small enough */
+
+@media (max-width: 31em) {
+    .has-header-image.twentyseventeen-front-page .site-branding .site-description,
+    .has-header-video.twentyseventeen-front-page .site-branding .site-description,
+    .has-header-image.home.blog .site-branding .site-description,
+    .has-header-video.home.blog .site-branding .site-description {
+        display: none;
+    }
+}
+
+/*--------------------------------------------------------------
+Custom Multi-Image Header
+--------------------------------------------------------------*/
+
+.greenfort-choose {
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s linear; /* triggered when site loads */
+
+    --greenfort-arrow-margin: 2rem; /* used to position arrows */
+}
+
+.greenfort-choice-link {
+    display: block;
+    position: relative;
+    height: 50%;
+}
+
+.greenfort-choose .greenfort-choice-link .greenfort-choice-image {
+    position: static;
+    min-width: 0;
+    padding-bottom: 0;
+}
+
+.greenfort-choice-description {
+    position: absolute;
+    width: 80%;
+    max-width: 22rem;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 4; /* site branding is 3 */
+
+    padding: 0.8rem 1rem;
+    border-radius: 0.8rem;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    font-size: 0.9375rem;
+}
+
+/* Arrows */
+
+.greenfort-choice-link:first-child::after,
+.greenfort-choice-link:last-child::before {
+    content: "\0003C"; /* less than */
+    position: absolute;
+    left: 50%;
+    bottom: var(--greenfort-arrow-margin);
+    transform: translate(-50%, 50%) rotate(90deg);
+    z-index: 2;
+
+    font-size: 4rem;
+    color: #767676;
+    text-shadow: -2px 0 2px #000, 0 2px 2px #000, 2px 0 2px #000, 0 -2px 2px #000;
+    transition: font-size 0.25s linear, color 0.25s linear;
+}
+
+/* Downwards Arrow */
+
+.greenfort-choice-link:last-child::before {
+    top: var(--greenfort-arrow-margin);
+    bottom: auto;
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.greenfort-choice-link:first-child:hover::after,
+.greenfort-choice-link:first-child:focus::after,
+.greenfort-choice-link:last-child:hover::before,
+.greenfort-choice-link:last-child:focus::before {
+    font-size: 6rem;
+    color: #fff;
+}
+
+/* Shrink arrows if screen is small enough */
+
+@media (max-width: 55em) {
+    .greenfort-choose {
+        --greenfort-arrow-margin: 1rem;
+    }
+
+    .greenfort-choice-link:first-child::after,
+    .greenfort-choice-link:last-child::before {
+        font-size: 2rem;
+    }
+
+    .greenfort-choice-link:first-child:hover::after,
+    .greenfort-choice-link:first-child:focus::after,
+    .greenfort-choice-link:last-child:hover::before,
+    .greenfort-choice-link:last-child:focus::before {
+        font-size: 2rem;
+    }
+}
+
+@media (min-aspect-ratio: 4/3) {
+    .greenfort-choice-link {
+        float: left;
+        width: 50%;
+        height: 100%;
+    }
+
+    .greenfort-choice-description {
+        bottom: 12%;
+        transform: translateX(-50%);
+    }
+
+    /* Left Arrow */
+
+    .greenfort-choice-link:first-child::after {
+        left: auto;
+        right: var(--greenfort-arrow-margin);
+        bottom: 50%;
+        transform: translate(50%, 50%);
+    }
+
+    /* Right Arrow */
+
+    .greenfort-choice-link:last-child::before {
+        top: auto;
+        left: var(--greenfort-arrow-margin);
+        bottom: 50%;
+        transform: translate(-50%, 50%) rotate(180deg);
+    }
+}
+
+/*--------------------------------------------------------------
+Footer
+--------------------------------------------------------------*/
+
+.greenfort-copyright {
+    font-size: 0.875rem;
+}
+
+@media screen and (min-width: 48em) {
+    .greenfort-copyright {
+        text-align: right;
+        padding-top: 0.7em;
+    }
+}
