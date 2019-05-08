@@ -7,7 +7,7 @@
 	<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentyseventeen' ) ); ?>" class="imprint"><?php
 		printf( __( 'Proudly powered by %s', 'twentyseventeen' ), 'WordPress' );
 	?></a><span role="separator" aria-hidden="true"></span>
-	<a href="https://andreiziureaev.com/">
+	<a href="http://andreiziureaev.com/">
 		Designed by Andrei&nbsp;Ziureaev
 	</a>
 </div><!-- .site-info -->
