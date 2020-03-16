@@ -12,5 +12,5 @@
 	</a>
 </div><!-- .site-info -->
 <div class="greenfort-copyright">
-	Copyright &copy; 2016-<?php echo date( 'Y' ); ?>
+	Copyright &copy; 2015-<?php echo date( 'Y' ); ?>
 </div>
